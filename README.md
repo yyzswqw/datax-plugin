@@ -525,7 +525,11 @@
 #### 示例
 
 ```json
-"dataConverters":[    {        "type": "BigInt2Date"    }]
+"dataConverters":[
+    {
+        "type": "BigInt2Date"
+    }
+]
 ```
 
 ### Str2Int
@@ -535,7 +539,11 @@
 #### 示例
 
 ```json
-"dataConverters":[    {        "type": "Str2Int"    }]
+"dataConverters":[
+    {
+        "type": "Str2Int"
+    }
+]
 ```
 
 ### Str2Double
@@ -545,7 +553,11 @@
 #### 示例
 
 ```json
-"dataConverters":[    {        "type": "Str2Double"    }]
+"dataConverters":[
+    {
+        "type": "Str2Double"
+    }
+]
 ```
 
 ### Str2BigDecimal
@@ -555,7 +567,11 @@
 #### 示例
 
 ```json
-"dataConverters":[    {        "type": "Str2BigDecimal"    }]
+"dataConverters":[
+    {
+        "type": "Str2BigDecimal"
+    }
+]
 ```
 
 ### IfNull2Default
@@ -573,7 +589,25 @@
 如果该列的值为null或者空字符串，那么设置该值为字符串类型的`2021-07-01`，并且将该字符串转换为`yyyy-MM-dd`格式的时间，再将该时间转换为long型的毫秒值。
 
 ```json
-"dataConverters":[    {        "type": "IfNull2Default",        "param": {            "default": "2021-07-01",            "dataConverters": [                {                    "type": "Str2Date",                    "param": {                        "pattern":"yyyy-MM-dd"                    }                },                {                    "type": "Date2Long"                }            ]        }    }]
+"dataConverters":[
+    {
+        "type": "IfNull2Default",
+        "param": {
+            "default": "2021-07-01",
+            "dataConverters": [
+                {
+                    "type": "Str2Date",
+                    "param": {
+                        "pattern":"yyyy-MM-dd"
+                    }
+                },
+                {
+                    "type": "Date2Long"
+                }
+            ]
+        }
+    }
+]
 ```
 
 ### NotNull2Null
@@ -583,7 +617,11 @@
 #### 示例
 
 ```json
-"dataConverters":[    {        "type": "NotNull2Null"    }]
+"dataConverters":[
+    {
+        "type": "NotNull2Null"
+    }
+]
 ```
 
 ### IfElse
@@ -599,7 +637,17 @@
 #### 示例
 
 ```json
-"dataConverters": [    {        "type": "IfElse",        "param": {            "if":"if(value=='20210801'){return true;}else{return false;}",            "value": "return a;",            "else": "return 4321;",            "sharedPool": "var a = 10;"        }    }]
+"dataConverters": [
+    {
+        "type": "IfElse",
+        "param": {
+            "if":"if(value=='20210801'){return true;}else{return false;}",
+            "value": "return a;",
+            "else": "return 4321;",
+            "sharedPool": "var a = 10;"
+        }
+    }
+]
 ```
 
 
