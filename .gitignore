@@ -18,6 +18,11 @@
 *.zip
 *.tar.gz
 *.rar
+.idea
+/plugin-sa-history-datax-reader/target/
+/plugin-sa-history-datax-reader/plugin-sa-history-datax-reader.iml
+/plugin-sa-history-datax-writer/target/
+/plugin-sa-history-datax-writer/plugin-sa-history-datax-writer.iml
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
