@@ -19,9 +19,15 @@ public class Str2DateConverter implements Converter {
         if (NullUtil.isNullOrBlank(value)) {
             return (Date) null;
         }
-        String pattern = (String) param.get("pattern");
+        String pattern = null;
+        try {
+            pattern = (String) param.get("pattern");
+        }catch (Exception e){}
         if (!formatsSet.contains(targetColumnName)) {
-            JSONArray formatsJsonArray = (JSONArray) param.get("formats");
+            JSONArray formatsJsonArray = null;
+            try {
+                formatsJsonArray = (JSONArray) param.get("formats");
+            }catch (Exception e){}
             if (!Objects.isNull(formatsJsonArray)) {
                 formatsJsonArray.forEach(f -> {
                     if (!DateUtil.hasFormatCustomize(f.toString())) {

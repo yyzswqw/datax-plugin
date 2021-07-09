@@ -17,6 +17,7 @@ import com.alibaba.datax.common.util.Configuration;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.sensorsdata.analytics.javasdk.SensorsAnalytics;
+import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -25,6 +26,7 @@ import java.util.stream.Collectors;
 
 public class SaWriter extends Writer {
 
+    @Slf4j
     public static class Job extends Writer.Job {
 
         private Configuration originalConfig = null;
@@ -44,6 +46,14 @@ public class SaWriter extends Writer {
                 throw new DataXException(CommonErrorCode.CONFIG_ERROR, "sdkDataAddress不能为空");
             }
             SaUtil.setSdkDataAddress(sdkDataAddress);
+            try {
+                boolean isGenerateLog = originalConfig.getBool(KeyConstant.IS_GENERATE_LOG);
+                if(!Objects.isNull(isGenerateLog)){
+                    SaUtil.setIsGenerateLog(isGenerateLog);
+                }
+            }catch (Exception e){
+                log.info("isGenerateLog未配置，使用默认值：true");
+            }
 
             String type = originalConfig.getString(KeyConstant.TYPE);
             JSONArray saColumnJsonArray = originalConfig.get(KeyConstant.SA_COLUMN, JSONArray.class);

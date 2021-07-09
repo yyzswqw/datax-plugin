@@ -135,6 +135,7 @@
                             }
                         ],
                         "sdkDataAddress": "/datax/datax/logag/log",
+                        "isGenerateLog":true,
                         "track": {
                             "distinctIdColumn": "id1",
                             "eventName": "testEventName",
@@ -282,6 +283,7 @@
                             }
                         ],
                         "sdkDataAddress": "/datax/datax/logag/log",
+                        "isGenerateLog":true,
                         "track": {
                             "distinctIdColumn": "id1",
                             "eventName": "testEventName",
@@ -341,7 +343,9 @@
 
 ### `writer`
 
-​		`sdkDataAddress`：数据存放路径，神策分析将接收到的数据经过转换后将数据存放的路径。
+​		`sdkDataAddress`：数据存放路径，神策分析将接收到的数据经过转换后将数据存放的路径或者神策系统接收数据的url地址。
+
+​		```isGenerateLog```：是否生成神策json文件，默认值true,如生成文件则需要配合神策导入工具使用，不生成文件时，```sdkDataAddress```参数为神策系统接收数据的url地址，如http://localhost:8106/sa?project=default，在神策系统中可查看。
 
 ​		`type`：导入神策分析的数据类型，可取值有：track/user/item，分别对应神策的事件/用户/属性。
 
